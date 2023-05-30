@@ -1,2 +1,9 @@
 class Diff_Drive():
-    pass
+    def forward():
+        pass
+    def reverse():
+        pass
+    def stop():
+        pass
+    def coast():
+        pass
