@@ -1,5 +1,5 @@
 # Use PWM to rapidly blink the LED on the pico board.
-
+# Does not work on pico-w.
 from machine import Pin, PWM
 from time import sleep
 
