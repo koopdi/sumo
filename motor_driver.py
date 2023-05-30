@@ -37,5 +37,5 @@ class Motor():
 class TB66:
     def __init__(self, ina1 = None, ina2 = None, pwma = None,
                        inb1 = None, inb2 = None, pwmb = None):
-        a = motor(ina1, ina2, pwma)
-        b = motor(inb1, inb2, pwmb)
+        a = Motor(ina1, ina2, pwma)
+        b = Motor(inb1, inb2, pwmb)
