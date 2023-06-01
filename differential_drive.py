@@ -57,3 +57,9 @@ class Diff_Drive():
         self.bridge.a.high_high()
         self.bridge.b.high_high()
         
+    def coast(self):
+        self.bridge.a.duty(0)
+        self.bridge.b.duty(0)
+        self.bridge.a.low_low()
+        self.bridge.b.low_low()
+        
