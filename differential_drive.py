@@ -51,3 +51,9 @@ class Diff_Drive():
             sleep(time)
             self.stop()
         
+    def stop(self):
+        self.bridge.a.duty(0)
+        self.bridge.b.duty(0)
+        self.bridge.a.high_high()
+        self.bridge.b.high_high()
+        
