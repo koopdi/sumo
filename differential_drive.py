@@ -28,11 +28,7 @@ def percent_to_duty(speed):
     return int((speed*65536)/100)
 
 class Diff_Drive():
-    def forward():
-        pass
-    def reverse():
-        pass
-    def stop():
-        pass
-    def coast():
-        pass
+    def __init__(self, bridge):
+        self.bridge = bridge
+        
+    def forward(self, speed = DEFAULT_SPEED, time = None):
