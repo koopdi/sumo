@@ -65,3 +65,12 @@ class Diff_Drive():
         
 bridge = motor_driver.TB66(ina1, ina2, pwma, inb1, inb2, pwmb)
 drive = Diff_Drive(bridge)
+
+def test():
+    bridge = motor_driver.TB66(ina1, ina2, pwma, inb1, inb2, pwmb)
+    drive = Diff_Drive(bridge)
+    sleep(3)
+    for speed in range(0,101,1):
+        drive.forward(speed = speed, time = 0.1)
+        drive.reverse(speed = speed, time = 0.1)
+    drive.coast()
