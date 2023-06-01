@@ -24,6 +24,9 @@ pwmb.freq(20000)
 pwma.duty_u16(0)
 pwmb.duty_u16(0)
 
+def percent_to_duty(speed):
+    return int((speed*65536)/100)
+
 class Diff_Drive():
     def forward():
         pass
