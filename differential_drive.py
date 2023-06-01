@@ -41,3 +41,13 @@ class Diff_Drive():
             sleep(time)
             self.stop()
         
+    def reverse(self, speed = DEFAULT_SPEED, time = None):
+        self.bridge.a.duty(percent_to_duty(speed))
+        self.bridge.b.duty(percent_to_duty(speed))
+        self.bridge.a.low_high()
+        self.bridge.b.high_low()
+        
+        if time != None:
+            sleep(time)
+            self.stop()
+        
