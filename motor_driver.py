@@ -7,6 +7,13 @@ class Motor():
         self.pin_1 = in1
         self.pin_2 = in2
         self.pwm_pin = inpwm
+        
+    def __str__(self):
+        str = "Motor Object Stats:\n"
+        str += "pin_1: " + repr(self.pin_1) + '\n'
+        str += "pin_2: " + repr(self.pin_2) + '\n'
+        str += "pwm_pin: " + repr(self.pwm_pin) + '\n'
+        return str
 
     def high_low(self):
         self.pin_1.value(1)
