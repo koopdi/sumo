@@ -37,6 +37,9 @@ class Motor():
         if freq != None:
             self.pwm_pin.freq(freq)
         return self.pwm_pin
+    
+    def duty(self, duty):
+        self.pwm_pin.duty_u16(duty)
 
 class TB66:
     def __init__(self, ina1 = None, ina2 = None, pwma = None,
