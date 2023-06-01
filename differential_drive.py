@@ -32,3 +32,12 @@ class Diff_Drive():
         self.bridge = bridge
         
     def forward(self, speed = DEFAULT_SPEED, time = None):
+        self.bridge.a.duty(percent_to_duty(speed))
+        self.bridge.b.duty(percent_to_duty(speed))
+        self.bridge.a.high_low()
+        self.bridge.b.low_high()
+        
+        if time != None:
+            sleep(time)
+            self.stop()
+        
