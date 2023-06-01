@@ -63,3 +63,5 @@ class Diff_Drive():
         self.bridge.a.low_low()
         self.bridge.b.low_low()
         
+bridge = motor_driver.TB66(ina1, ina2, pwma, inb1, inb2, pwmb)
+drive = Diff_Drive(bridge)
