@@ -23,14 +23,10 @@ class Motor():
     def low_low(self):
         self.pin_1.value(0)
         self.pin_2.value(0)
-
-    def pwm(self):
-        return self
     
     def pwm(self, duty = None, freq = None):
         if duty != None:
             self.pwm_pin.duty_u16(duty)
-        
         if freq != None:
             self.pwm_pin.freq(freq)
 
