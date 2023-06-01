@@ -1,5 +1,4 @@
-DEFAULT_SPEED = 
-50
+DEFAULT_SPEED = 30
 class Diff_Drive():
     def forward():
         pass
