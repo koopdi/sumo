@@ -37,78 +37,19 @@ pwmb.freq(10000)
 # infrared line sensor
 ir = Pin(22, Pin.IN)
 
-# duty sets the speed, duty = 0 ~ 100%
-# motor = 'a' or 'b'
-def RotateCW(duty, motor):
-    duty_16 = int((duty*65536)/100)
-    if motor == 'a':        
-        ina1.value(1)
-        ina2.value(0)
-        pwma.duty_u16(duty_16)
-    elif motor == 'b':
-        inb1.value(0)
-        inb2.value(1)
-        pwmb.duty_u16(duty_16)
-
-def RotateCCW(duty, motor):
-    duty_16 = int((duty*65536)/100)
-    if motor == 'a':        
-        ina1.value(0)
-        ina2.value(1)
-        pwma.duty_u16(duty_16)
-    elif motor == 'b':
-        inb1.value(1)
-        inb2.value(0)
-        pwmb.duty_u16(duty_16)
-
-# basic control functions
-def StopMotor(motor):
-    if motor == 'a':
-        ina1.value(0)
-        ina2.value(0)
-        pwma.duty_u16(0)
-    elif motor == 'b':
-        inb1.value(0)
-        inb2.value(0)
-        pwmb.duty_u16(0)
-
-# duration doesn't do anything yet
-def forward(duty, duration = -1):
-    RotateCW(duty, 'a')
-    RotateCW(duty, 'b')
-    
-def reverse(duty, duration = -1):
-    RotateCCW(duty, 'a')
-    RotateCCW(duty, 'b')
-    
-def stop():
-    StopMotor('a')
-    StopMotor('b')
-
-# it only turns left for now
-def turn(duty = 50, direction = 'left'):
-    RotateCW(duty, 'a')
-    RotateCCW(duty, 'b')
-
-drive_speed = 15
-
 def run():
     print('running')
     while True:
         if btn_start.value() == 0:
-            stop()
+            drive.stop()
             print("Exiting sumo code")
-            exit()
+            sleep(0.5)
+            return
         elif ir.value() == True: # no line detected, drive forward
-#             print("true", ir, ir.value())
-            forward(drive_speed)
+            drive.forward(time = 0.1)
         else: # line deteted, drive backward then turn
-#             print("false", ir, ir.value())
-            reverse(drive_speed)
-            sleep(2/drive_speed) # drive backward for 1 second
-            turn(drive_speed)
-            sleep(1/drive_speed) # turn for one second
-        sleep(1) # wait 0.1 seconds in either case
+            drive.reverse(time = 0.5)
+            drive.left(time = 0.75)
 
 # wait for button press, then start countdown
 def wait_to_run():
