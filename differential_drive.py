@@ -50,6 +50,26 @@ class Diff_Drive():
         if time != None:
             sleep(time)
             self.stop()
+            
+    def left(self, speed = DEFAULT_SPEED, time = None):
+        self.bridge.a.duty(percent_to_duty(speed))
+        self.bridge.b.duty(percent_to_duty(speed))
+        self.bridge.a.high_low()
+        self.bridge.b.high_low()
+        
+        if time != None:
+            sleep(time)
+            self.stop()
+            
+    def right(self, speed = DEFAULT_SPEED, time = None):
+        self.bridge.a.duty(percent_to_duty(speed))
+        self.bridge.b.duty(percent_to_duty(speed))
+        self.bridge.a.low_high()
+        self.bridge.b.low_high()
+        
+        if time != None:
+            sleep(time)
+            self.stop()
         
     def stop(self):
         self.bridge.a.duty(0)
