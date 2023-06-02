@@ -62,3 +62,6 @@ def wait_to_run():
                 led.value(0)
                 sleep(0.5)
             run()
+#             test()
+#             return # end program, remove to keep waiting after run
+
