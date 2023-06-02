@@ -2,7 +2,7 @@ import motor_driver
 from machine import Pin ,PWM
 from utime import sleep
 
-DEFAULT_SPEED = 30
+DEFAULT_SPEED = 50
 
 # motor a control pins
 ina1 = Pin(18, Pin.OUT)
