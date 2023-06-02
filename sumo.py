@@ -4,11 +4,10 @@ and the TCRT5000 line sensing module.
 A two wheeled vehicle with differential drive is
 controlled to stay within a white border.
 """
+from machine import Pin
+from time import sleep
 
-from machine import Pin , PWM
-from utime import sleep
-from utime import sleep_ms
-from sys import exit
+from differential_drive import drive, test
 
 # The led on the pico-w board.
 led = Pin("LED", Pin.OUT)
