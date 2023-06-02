@@ -12,27 +12,8 @@ from differential_drive import drive, test
 # The led on the pico-w board.
 led = Pin("LED", Pin.OUT)
 
-# The led on the pico-classic board.
-# led = Pin(25, Pin.OUT)
-
 # the start match button
 btn_start = Pin(1, Pin.IN, Pin.PULL_UP)
-
-# motor a control pins
-ina1 = Pin(18, Pin.OUT)
-ina2 = Pin(17, Pin.OUT)
-
-# motor b control pins
-inb1 = Pin(19, Pin.OUT)
-inb2 = Pin(20, Pin.OUT)
-
-# speed control pins
-pwma = PWM(Pin(16)) # motor a
-pwmb = PWM(Pin(21)) # motor b
-
-# set pwm frequency
-pwma.freq(10000)
-pwmb.freq(10000)
 
 # infrared line sensor
 ir = Pin(22, Pin.IN)
