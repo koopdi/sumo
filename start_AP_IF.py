@@ -1,20 +1,19 @@
-# Create a wifi access point.
-# This feature isn't well supported by micropython on the pico w yet.
-
 import network
-
-# Choose a name and password.
-# 'micropythoN' is the default password.
 my_ssid='bobby_dr00bbles'
 my_password='micropythoN'
+# ap = network.WLAN(network.AP_IF)
+# ap.config(ssid='bobby_drop_tables')
+# ap.config(password='smith')
 
-# Activate WLAN interface in Access Point mode.
 ap = network.WLAN(network.AP_IF)
 ap.config(essid=my_ssid, password=my_password)
+# ap.config(essid=ssid)
+# ap.config(password=password)
+
 ap.active(True)
 
-# Print out some stats.
 print('hostname:', ap.config('hostname'))
+# print('password:', ap.config('password'))
 print(ap, 'active?:', ap.active())
 print('ssid:', ap.config('ssid'))
 print('channel:', ap.config('channel'))
