@@ -4,7 +4,7 @@ stream_handler = logging.StreamHandler()
 stream_handler.setLevel(logging.DEBUG) # console log level
 
 file_handler = logging.FileHandler("log.txt", mode="a")
-file_handler.setLevel(logging.DEBUG) # file log level
+file_handler.setLevel(logging.INFO) # file log level
 
 # Create a formatter
 # asctime doesn't work

@@ -376,9 +376,11 @@ class MPU6050(object):
         '''
         Update gyroscope Vector3d object
         '''
+#         print("_gyro_callback")
         try:
             self._read(self.buf6, 0x43, self.mpu_addr)
-        except OSError:
+        except OSError as e:
+            print(e)
             raise MPUException(self._I2Cerror)
         self._gyro._ivector[0] = bytes_toint(self.buf6[0], self.buf6[1])
         self._gyro._ivector[1] = bytes_toint(self.buf6[2], self.buf6[3])
