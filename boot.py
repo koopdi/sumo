@@ -14,6 +14,10 @@ log = logger.init("boot")
 log.info(" ---------------- system online -------------------")
 logger.flush()
 
+# begin blinking onboard led rapidly
+from blink_pwm import led
+led.freq(20)
+
 #---------------setup webrepl---------------------------#
 # import network
 # 
