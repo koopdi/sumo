@@ -5,6 +5,6 @@ print("System Information")
 # display system information
 print('uname: ', uos.uname())
 
-import sumo
+import sumo2
 print("Launching sumo code...")
-sumo.wait_to_run()
+sumo2.wait_to_run()
